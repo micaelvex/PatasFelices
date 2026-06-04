@@ -1,0 +1,20 @@
+# Credenciales sensibles - NUNCA subir
+application.properties
+start-backend.bat
+
+# Dependencias
+node_modules/
+
+# Builds generados
+frontend/dist/
+
+# Datos en tiempo de ejecución
+uploads/
+
+# Config local de herramientas
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

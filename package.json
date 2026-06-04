@@ -1,0 +1,14 @@
+{
+  "name": "patas-felices",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently --names \"BACKEND,FRONTEND\" --prefix-colors \"blue,green\" \"npm run backend\" \"npm run frontend\"",
+    "backend": "start-backend.bat",
+    "frontend": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
