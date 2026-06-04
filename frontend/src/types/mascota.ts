@@ -20,6 +20,8 @@ export interface MascotaResponse {
   esFavorito: boolean;
 }
 
+const UPLOADS_BASE = (import.meta.env.VITE_API_URL || "http://localhost:8080/api").replace("/api", "");
+
 export function formatEdad(meses: number): string {
   if (!meses) return "Edad desconocida";
   if (meses < 12) return `${meses} ${meses === 1 ? "mes" : "meses"}`;
@@ -51,5 +53,5 @@ export function formatSexo(s: string): string {
 
 export function getFotoUrl(fotos: string[]): string | null {
   if (!fotos || fotos.length === 0) return null;
-  return `http://localhost:8080/uploads/${fotos[0]}`;
+  return `${UPLOADS_BASE}/uploads/${fotos[0]}`;
 }

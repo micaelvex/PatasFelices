@@ -28,9 +28,10 @@ export function MascotaDetalle({ mascota, onClose, onFavoritoToggle }: Props) {
     return () => { document.body.style.overflow = ""; };
   }, []);
 
+  const UPLOADS = (import.meta.env.VITE_API_URL || "http://localhost:8080/api").replace("/api", "");
   const totalFotos = mascota.fotos?.length ?? 0;
   const fotoUrl = totalFotos > 0
-    ? `http://localhost:8080/uploads/${mascota.fotos[fotoActiva]}`
+    ? `${UPLOADS}/uploads/${mascota.fotos[fotoActiva]}`
     : null;
 
   const prevFoto = () => setFotoActiva((i) => (i - 1 + totalFotos) % totalFotos);
