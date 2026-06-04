@@ -1,7 +1,5 @@
 
-  # Interfaz web para adopción de mascotas
-
-  This is a code bundle for Interfaz web para adopción de mascotas. The original project is available at https://www.figma.com/design/6JQvS4tFDZgCpI1428cUCg/Interfaz-web-para-adopci%C3%B3n-de-mascotas.
+  # Pagina web para adopción de mascotas
 
   ## Running the code
 
