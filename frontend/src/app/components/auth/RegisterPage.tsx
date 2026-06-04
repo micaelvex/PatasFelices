@@ -78,25 +78,7 @@ export function RegisterPage({ onGoToLogin, onBack }: Props) {
   const inputClass =
     "w-full pl-9 pr-3 py-2.5 bg-[#F8FAFC] border border-[#E8ECF0] rounded-xl text-[#0F172A] text-sm placeholder-[#94A3B8] focus:outline-none focus:bg-white focus:border-[#1E88E5] focus:shadow-[0_0_0_3px_rgba(30,136,229,0.08)] transition-all";
 
-  const Icon = ({ icon: I }: { icon: React.ElementType }) => (
-    <I size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8] pointer-events-none" />
-  );
-
-  const Field = ({
-    label, icon, children,
-  }: {
-    label: string;
-    icon: React.ElementType;
-    children: React.ReactNode;
-  }) => (
-    <div>
-      <label className="block text-xs font-medium text-[#475569] mb-1.5">{label}</label>
-      <div className="relative">
-        <Icon icon={icon} />
-        {children}
-      </div>
-    </div>
-  );
+  const iconClass = "absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8] pointer-events-none";
 
   return (
     <div className="min-h-screen flex">
@@ -212,42 +194,58 @@ export function RegisterPage({ onGoToLogin, onBack }: Props) {
 
             {/* Fila 1: Nombre + Email */}
             <div className="grid grid-cols-2 gap-3">
-              <Field label="Nombre completo" icon={User}>
-                <input type="text" value={form.nombre}
-                  onChange={(e) => set("nombre", e.target.value)}
-                  placeholder="Tu nombre"
-                  required autoComplete="name" className={inputClass} />
-              </Field>
-              <Field label="Correo electrónico" icon={Mail}>
-                <input type="email" value={form.email}
-                  onChange={(e) => set("email", e.target.value)}
-                  placeholder="tu@correo.com"
-                  required autoComplete="email" className={inputClass} />
-              </Field>
+              <div>
+                <label className="block text-xs font-medium text-[#475569] mb-1.5">Nombre completo</label>
+                <div className="relative">
+                  <User size={15} className={iconClass} />
+                  <input type="text" value={form.nombre}
+                    onChange={(e) => set("nombre", e.target.value)}
+                    placeholder="Tu nombre"
+                    required autoComplete="name" className={inputClass} />
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-[#475569] mb-1.5">Correo electrónico</label>
+                <div className="relative">
+                  <Mail size={15} className={iconClass} />
+                  <input type="email" value={form.email}
+                    onChange={(e) => set("email", e.target.value)}
+                    placeholder="tu@correo.com"
+                    required autoComplete="email" className={inputClass} />
+                </div>
+              </div>
             </div>
 
             {/* Fila 2: Contraseña + Teléfono */}
             <div className="grid grid-cols-2 gap-3">
-              <Field label="Contraseña" icon={Lock}>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  value={form.password}
-                  onChange={(e) => set("password", e.target.value)}
-                  placeholder="Mín. 6 caracteres"
-                  required minLength={6} autoComplete="new-password"
-                  className={`${inputClass} pr-9`}
-                />
-                <button type="button" onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#94A3B8] hover:text-[#64748B] transition-colors">
-                  {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
-                </button>
-              </Field>
-              <Field label="Teléfono" icon={Phone}>
-                <input type="tel" value={form.telefono}
-                  onChange={(e) => set("telefono", e.target.value)}
-                  placeholder="987 654 321"
-                  required autoComplete="tel" className={inputClass} />
-              </Field>
+              <div>
+                <label className="block text-xs font-medium text-[#475569] mb-1.5">Contraseña</label>
+                <div className="relative">
+                  <Lock size={15} className={iconClass} />
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    value={form.password}
+                    onChange={(e) => set("password", e.target.value)}
+                    placeholder="Mín. 6 caracteres"
+                    required minLength={6} autoComplete="new-password"
+                    className={`${inputClass} pr-9`}
+                  />
+                  <button type="button" onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#94A3B8] hover:text-[#64748B] transition-colors">
+                    {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
+                  </button>
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-[#475569] mb-1.5">Teléfono</label>
+                <div className="relative">
+                  <Phone size={15} className={iconClass} />
+                  <input type="tel" value={form.telefono}
+                    onChange={(e) => set("telefono", e.target.value)}
+                    placeholder="987 654 321"
+                    required autoComplete="tel" className={inputClass} />
+                </div>
+              </div>
             </div>
 
             {/* Campos refugio con animación */}
@@ -258,13 +256,17 @@ export function RegisterPage({ onGoToLogin, onBack }: Props) {
               transition: "max-height 0.4s ease, opacity 0.3s ease",
             }}>
               <div className="grid grid-cols-2 gap-3 pt-0.5">
-                <Field label="Nombre de la organización" icon={Building2}>
-                  <input type="text" value={form.nombreOrganizacion}
-                    onChange={(e) => set("nombreOrganizacion", e.target.value)}
-                    placeholder="Nombre del refugio"
-                    required={form.rol === "REFUGIO"}
-                    className={inputClass} />
-                </Field>
+                <div>
+                  <label className="block text-xs font-medium text-[#475569] mb-1.5">Nombre de la organización</label>
+                  <div className="relative">
+                    <Building2 size={15} className={iconClass} />
+                    <input type="text" value={form.nombreOrganizacion}
+                      onChange={(e) => set("nombreOrganizacion", e.target.value)}
+                      placeholder="Nombre del refugio"
+                      required={form.rol === "REFUGIO"}
+                      className={inputClass} />
+                  </div>
+                </div>
                 <div>
                   <label className="block text-xs font-medium text-[#475569] mb-1.5">Distrito donde operan</label>
                   <div className="relative">
