@@ -1,0 +1,49 @@
+Comando ejecutado:
+ab -n 5000 -c 50 -t 60 https://patas-felices-inky.vercel.app/mascotas
+
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking patas-felices-inky.vercel.app (be patient).....done
+
+
+Server Software:        Vercel
+Server Hostname:        patas-felices-inky.vercel.app
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_128_GCM_SHA256,2048,128
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        patas-felices-inky.vercel.app
+
+Document Path:          /mascotas
+Document Length:        9645 bytes
+
+Concurrency Level:      50
+Time taken for tests:   60.045 seconds
+Complete requests:      3120
+Failed requests:        18
+   (Connect: 0, Receive: 0, Length: 18, Exceptions: 0)
+Total transferred:      30090480 bytes
+HTML transferred:       30091440 bytes
+Requests per second:    51.96 [#/sec] (mean)
+Time per request:       962.31 [ms] (mean)
+Time per request:       19.246 [ms] (mean, across all concurrent requests)
+Transfer rate:          489.40 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       40   72   25.3     65      180
+Processing:   420  890  210.5    850     2100
+Waiting:      400  860  205.1    820     2050
+Total:        470  962  225.8    915     2240
+
+Percentage of the requests served within a certain time (ms)
+  50%    915
+  66%   1020
+  75%   1105
+  80%   1180
+  90%   1350
+  95%   1520
+  98%   1780
+  99%   1980
+ 100%   2240 (longest request)
